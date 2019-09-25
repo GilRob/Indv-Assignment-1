@@ -14,23 +14,27 @@ public class PluginTester : MonoBehaviour
     [DllImport(DLL_NAME)]
     private static extern void LoadPosition(float posX, float posY, float posZ);
 
-    float pX = 0.0f;
-    float pY = 0.0f;
-    float pZ = 0.0f;
+    float curPX = 0.0f;
+    float curPY = 0.0f;
+    float curPZ = 0.0f;
 
     void Update()
     {
+        curPX = transform.position.x;
+        curPY = transform.position.y;
+        curPZ = transform.position.z;
+
         if (Input.GetKeyDown(KeyCode.T))
         {
             Debug.Log(SimpleFunction());
         }
 
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyUp(KeyCode.S))
         {
             Save();
         }
 
-        if (Input.GetKeyDown(KeyCode.L))
+        if (Input.GetKeyUp(KeyCode.L))
         {
             Load();
         }
@@ -40,19 +44,21 @@ public class PluginTester : MonoBehaviour
     {
         Debug.Log("Saving Position...");
 
-        pX = transform.position.x;
-        pY = transform.position.y;
-        pZ = transform.position.z;
+        //Debug.Log(curPX);
+        //Debug.Log(curPZ);
 
-        SavePosition(pX, pY, pZ);
+        SavePosition(curPX, curPY, curPZ);
     }
 
     public void Load()
     {
         Debug.Log("Loading Position...");
 
-        LoadPosition(pX, pY, pZ);
+        LoadPosition(curPX, curPY, curPZ);
 
-        transform.Translate(pX, pY, pZ);
+        //Debug.Log(curPX);
+        //Debug.Log(curPZ);
+
+        transform.position = new Vector3(curPX, curPY, curPZ);
     }
 }
