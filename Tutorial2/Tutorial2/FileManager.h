@@ -1,21 +1,29 @@
 #pragma once
 #include "PluginSettings.h"
-#include "SimpleClass.h"
+//#include "SimpleClass.h"
 
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <vector>
 
 class PLUGIN_API FileManager
 {
 public:
+
+	/*struct Vec3
+	{
+		float x;
+		float y;
+		float z;
+	};*/
 
 	void WriteFile(std::string fileName);//, FileManager* temp);// , SimpleClass sClass);
 	void ReadFile(std::string fileName);// , SimpleClass sClass);
 
 	void SavePosition(float posX, float posY, float posZ);
 
-	void LoadPosition(float posX, float posY, float posZ);
+	void LoadPosition();
 
 	void setX(float posX);
 	void setY(float posY);
@@ -25,7 +33,7 @@ public:
 	float getY();
 	float getZ();
 
-protected:
+//protected:
 	float X; //= 0.0f;
 	float Y; //= 0.0f;
 	float Z; //= 0.0f;

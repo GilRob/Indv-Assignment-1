@@ -1,7 +1,8 @@
 #pragma once
 
 #include "PluginSettings.h"
-#include "SimpleClass.h"
+//#include "SimpleClass.h"
+#include "FileManager.h"
 
 #ifdef __cplusplus
 extern "C"
@@ -9,11 +10,15 @@ extern "C"
 #endif
 
 	// Put your functions here
-	PLUGIN_API int SimpleFunction();
+	//PLUGIN_API int SimpleFunction();
 	
 	PLUGIN_API void SavePosition(float posX, float posY, float posZ);
 
-	PLUGIN_API void LoadPosition(float posX, float posY, float posZ);
+	PLUGIN_API void LoadPosition();
+
+	PLUGIN_API float getX();
+	PLUGIN_API float getY();
+	PLUGIN_API float getZ();
 
 
 #ifdef __cplusplus

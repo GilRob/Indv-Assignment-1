@@ -3,7 +3,7 @@
 //#include <iostream>
 //#include <fstream>
 
-void main()
+/*void main()
 {
 	//SimpleClass temp;
 	FileManager* filer = new FileManager();
@@ -36,4 +36,4 @@ void main()
 	//filer.WriteFile("save.txt", temp);
 
 
-}
+//}

@@ -1,18 +1,33 @@
 #include "Wrapper.h"
 
-SimpleClass simpleClass;
+FileManager fileMan;
 
-int SimpleFunction()
+/*int SimpleFunction()
 {
 	return simpleClass.SimpleFunction();
-}
+}*/
 
 void SavePosition(float posX, float posY, float posZ)
 {
-	return simpleClass.SavePosition(posX, posY, posZ);
+	return fileMan.SavePosition(posX, posY, posZ);
 }
 
-void LoadPosition(float posX, float posY, float posZ)
+void LoadPosition()
 {
-	return simpleClass.LoadPosition(posX, posY, posZ);
+	return fileMan.LoadPosition();
+}
+
+float getX()
+{
+	return fileMan.getX();
+}
+
+float getY()
+{
+	return fileMan.getY();
+}
+
+float getZ()
+{
+	return fileMan.getZ();
 }

@@ -58,11 +58,9 @@ void FileManager::SavePosition(float posX, float posY, float posZ)
 	WriteFile("save.txt");//, this);
 }
 
-void FileManager::LoadPosition(float posX, float posY, float posZ)
+void FileManager::LoadPosition()
 {
-	posX = X;
-	posY = Y;
-	posZ = Z;
+	ReadFile("save.txt");
 }
 
 void FileManager::setX(float posX)

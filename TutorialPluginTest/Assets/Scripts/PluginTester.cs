@@ -7,27 +7,33 @@ public class PluginTester : MonoBehaviour
 {
     const string DLL_NAME = "Tutorial2";
 
-    [DllImport(DLL_NAME)]
-    private static extern int SimpleFunction();
+    //[DllImport(DLL_NAME)]
+    //private static extern int SimpleFunction();
     [DllImport(DLL_NAME)]
     private static extern void SavePosition(float posX, float posY, float posZ);
     [DllImport(DLL_NAME)]
-    private static extern void LoadPosition(float posX, float posY, float posZ);
+    private static extern void LoadPosition();
+    [DllImport(DLL_NAME)]
+    private static extern float GetX();
+    [DllImport(DLL_NAME)]
+    private static extern float GetY();
+    [DllImport(DLL_NAME)]
+    private static extern float GetZ();
 
-    float curPX = 0.0f;
-    float curPY = 0.0f;
-    float curPZ = 0.0f;
+    float pX = 0.0f;
+    float pY = 0.0f;
+    float pZ = 0.0f;
 
     void Update()
     {
-        curPX = transform.position.x;
-        curPY = transform.position.y;
-        curPZ = transform.position.z;
+        pX = transform.position.x;
+        pY = transform.position.y;
+        pZ = transform.position.z;
 
-        if (Input.GetKeyDown(KeyCode.T))
+        /*if (Input.GetKeyDown(KeyCode.T))
         {
             Debug.Log(SimpleFunction());
-        }
+        }*/
 
         if (Input.GetKeyUp(KeyCode.S))
         {
@@ -47,18 +53,22 @@ public class PluginTester : MonoBehaviour
         //Debug.Log(curPX);
         //Debug.Log(curPZ);
 
-        SavePosition(curPX, curPY, curPZ);
+        SavePosition(pX, pY, pZ);
     }
 
     public void Load()
     {
         Debug.Log("Loading Position...");
 
-        LoadPosition(curPX, curPY, curPZ);
+        LoadPosition();
 
         //Debug.Log(curPX);
         //Debug.Log(curPZ);
 
-        transform.position = new Vector3(curPX, curPY, curPZ);
+        float x = GetX();
+        float y = GetY();
+        float z = GetZ();
+
+        transform.position = new Vector3(x, y, z);
     }
 }
