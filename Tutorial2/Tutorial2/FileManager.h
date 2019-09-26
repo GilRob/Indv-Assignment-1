@@ -1,12 +1,17 @@
 #pragma once
-
 #include "PluginSettings.h"
-#include "FileManager.h"
+#include "SimpleClass.h"
 
-class PLUGIN_API SimpleClass
+#include <iostream>
+#include <fstream>
+#include <string>
+
+class PLUGIN_API FileManager
 {
 public:
-	int SimpleFunction();
+
+	void WriteFile(std::string fileName);//, FileManager* temp);// , SimpleClass sClass);
+	void ReadFile(std::string fileName);// , SimpleClass sClass);
 
 	void SavePosition(float posX, float posY, float posZ);
 
@@ -26,6 +31,9 @@ protected:
 	float Z; //= 0.0f;
 
 private:
+	
+	std::ofstream write;
+	std::ifstream read;
 
 
 };
