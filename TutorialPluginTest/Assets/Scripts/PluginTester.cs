@@ -5,10 +5,10 @@ using System.Runtime.InteropServices;
 
 public class PluginTester : MonoBehaviour
 {
+    //Variable to hole the name of my DLL
     const string DLL_NAME = "Tutorial2";
 
-    //[DllImport(DLL_NAME)]
-    //private static extern int SimpleFunction();
+    //Initialize the DLL functions
     [DllImport(DLL_NAME)]
     private static extern void SavePosition(float posX, float posY, float posZ);
     [DllImport(DLL_NAME)]
@@ -20,20 +20,17 @@ public class PluginTester : MonoBehaviour
     [DllImport(DLL_NAME)]
     private static extern float getZ();
 
+    //Float values to hold the current position of the player
     float pX = 0.0f;
     float pY = 0.0f;
     float pZ = 0.0f;
 
     void Update()
     {
+        //Update the values of the players position into the variables
         pX = transform.position.x;
         pY = transform.position.y;
         pZ = transform.position.z;
-
-        /*if (Input.GetKeyDown(KeyCode.T))
-        {
-            Debug.Log(SimpleFunction());
-        }*/
 
         if (Input.GetKeyUp(KeyCode.S))
         {
@@ -50,11 +47,9 @@ public class PluginTester : MonoBehaviour
     {
         Debug.Log("Saving Position...");
 
-        //Debug.Log(curPX);
-        //Debug.Log(curPZ);
-
         Debug.Log(pX);
 
+        //Call the SavePosition function in the DLL
         SavePosition(pX, pY, pZ);
     }
 
@@ -62,15 +57,15 @@ public class PluginTester : MonoBehaviour
     {
         Debug.Log("Loading Position...");
 
+        //Call the LoadPosition function in the DLL
         LoadPosition();
 
-        //Debug.Log(curPX);
-        //Debug.Log(curPZ);
-
+        //Call the getters in the DLL to get the values of the saved position
         float x = getX();
         float y = getY();
         float z = getZ();
 
+        //Move the player back to the saved position
         transform.position = new Vector3(x, y, z);
     }
 }

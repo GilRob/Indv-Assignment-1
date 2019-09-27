@@ -1,7 +1,5 @@
 #include "SimpleClass.h"
 
-//FileManager filer;
-
 int SimpleClass::SimpleFunction()
 {
 	return 1;

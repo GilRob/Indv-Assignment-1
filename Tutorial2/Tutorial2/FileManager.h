@@ -1,47 +1,43 @@
 #pragma once
 #include "PluginSettings.h"
-//#include "SimpleClass.h"
 
 #include <iostream>
 #include <fstream>
 #include <string>
 #include <vector>
 
-/*struct Vec3
-{
-	float x;
-	float y;
-	float z;
-};*/
-
 class PLUGIN_API FileManager
 {
 public:
 
-	void WriteFile(std::string fileName);//, FileManager* temp);// , SimpleClass sClass);
-	void ReadFile(std::string fileName);// , SimpleClass sClass);
+	//This function will write the saved values to a text file
+	void WriteFile(std::string fileName);
+	//This function will read the text file and assign the saved values to the players position
+	void ReadFile(std::string fileName);
 
+	//Saves the values to variables and calls the writer
 	void SavePosition(float posX, float posY, float posZ);
 
+	//Calls the reader
 	void LoadPosition();
 
+	//Setters
 	void setX(float posX);
 	void setY(float posY);
 	void setZ(float posZ);
 
+	//Getters
 	float getX();
 	float getY();
 	float getZ();
 
-//protected:
-	float X; //= 0.0f;
-	float Y; //= 0.0f;
-	float Z; //= 0.0f;
+	//Variables to hold the position
+	float X;
+	float Y;
+	float Z;
 
 private:
 	
 	std::ofstream write;
 	std::ifstream read;
-
-
 };

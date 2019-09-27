@@ -21,9 +21,9 @@ public:
 	float getZ();
 
 protected:
-	float X; //= 0.0f;
-	float Y; //= 0.0f;
-	float Z; //= 0.0f;
+	float X;
+	float Y;
+	float Z;
 
 private:
 

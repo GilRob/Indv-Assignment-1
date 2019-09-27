@@ -2,11 +2,6 @@
 
 FileManager fileMan;
 
-/*int SimpleFunction()
-{
-	return simpleClass.SimpleFunction();
-}*/
-
 void SavePosition(float posX, float posY, float posZ)
 {
 	return fileMan.SavePosition(posX, posY, posZ);
