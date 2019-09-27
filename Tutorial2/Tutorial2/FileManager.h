@@ -7,16 +7,16 @@
 #include <string>
 #include <vector>
 
+/*struct Vec3
+{
+	float x;
+	float y;
+	float z;
+};*/
+
 class PLUGIN_API FileManager
 {
 public:
-
-	/*struct Vec3
-	{
-		float x;
-		float y;
-		float z;
-	};*/
 
 	void WriteFile(std::string fileName);//, FileManager* temp);// , SimpleClass sClass);
 	void ReadFile(std::string fileName);// , SimpleClass sClass);

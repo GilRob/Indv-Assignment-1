@@ -14,11 +14,11 @@ public class PluginTester : MonoBehaviour
     [DllImport(DLL_NAME)]
     private static extern void LoadPosition();
     [DllImport(DLL_NAME)]
-    private static extern float GetX();
+    private static extern float getX();
     [DllImport(DLL_NAME)]
-    private static extern float GetY();
+    private static extern float getY();
     [DllImport(DLL_NAME)]
-    private static extern float GetZ();
+    private static extern float getZ();
 
     float pX = 0.0f;
     float pY = 0.0f;
@@ -53,6 +53,8 @@ public class PluginTester : MonoBehaviour
         //Debug.Log(curPX);
         //Debug.Log(curPZ);
 
+        Debug.Log(pX);
+
         SavePosition(pX, pY, pZ);
     }
 
@@ -65,9 +67,9 @@ public class PluginTester : MonoBehaviour
         //Debug.Log(curPX);
         //Debug.Log(curPZ);
 
-        float x = GetX();
-        float y = GetY();
-        float z = GetZ();
+        float x = getX();
+        float y = getY();
+        float z = getZ();
 
         transform.position = new Vector3(x, y, z);
     }
